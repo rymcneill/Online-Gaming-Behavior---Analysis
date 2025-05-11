@@ -1,0 +1,3 @@
+Logistic Regression CV Score: 0.8867
+Random Forest CV Score: 0.8978
+XGBoost CV Score: 0.8978
