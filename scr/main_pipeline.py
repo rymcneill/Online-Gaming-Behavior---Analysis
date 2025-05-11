@@ -163,10 +163,12 @@ print(model_scores)
 # Visual Comparison
 sns.barplot(x='Model', y='Accuracy', data=model_scores)
 plt.title("Model Accuracy Comparison")
+plt.savefig('outputs/figures/model_accuracy_comparison.png')
 plt.show()
 
 sns.barplot(x='Model', y='F1 Score', data=model_scores)
 plt.title("Model F1 Score Comparison")
+plt.savefig('outputs/figures/model_f1_score_comparison.png')  # Save the plot
 plt.show()
 
 #Feature Importance (XGBoost)
@@ -175,13 +177,14 @@ feature_names = X.columns
 importance_df = pd.DataFrame({'Feature': feature_names, 'Importance': importances})
 importance_df = importance_df.sort_values(by='Importance', ascending=False)
 
-# Plot
+# Plot - Feature Importance (XGBoost)
 plt.figure(figsize=(10, 6))
 sns.barplot(data=importance_df, x='Importance', y='Feature', palette='viridis')
 plt.title('XGBoost Feature Importances')
 plt.xlabel('Importance Score')
 plt.ylabel('Feature')
 plt.tight_layout()
+plt.savefig('outputs/figures/xgboost_feature_importance.png')  # Save the plot
 plt.show()
 
 #Target Variable Distribution
@@ -189,28 +192,33 @@ sns.countplot(x='EngagementLevel', data=df)
 plt.title("Distribution of Engagement Levels")
 plt.xlabel("Engagement Level")
 plt.ylabel("Count")
+plt.savefig('outputs/figures/engagement_level_distribution.png')  # Save the plot
 plt.show()
 
 #Correlation Heatmap (numeric features)
 plt.figure(figsize=(12, 8))
 sns.heatmap(df.corr(), annot=True, cmap='coolwarm', fmt=".2f")
 plt.title("Feature Correlation Heatmap")
+plt.savefig('outputs/figures/feature_correlation_heatmap.png')  # Save the plot
 plt.show()
 
 #Pairplot of Key Features
 selected_numeric = ['TotalPlayMinutesPerWeek', 'PlayerLevel', 'AchievementsUnlocked', 'PlayTimeHours', 'EngagementLevel']
 sns.pairplot(df[selected_numeric], hue='EngagementLevel', diag_kind='kde')
 plt.suptitle("Pairwise Plot of Key Features", y=1.02)
+plt.savefig('outputs/figures/pairwise_plot_key_features.png')  # Save the plot
 plt.show()
 
 #Boxplot: Feature Distributions by Engagement
 plt.figure(figsize=(10, 6))
 sns.boxplot(x='EngagementLevel', y='TotalPlayMinutesPerWeek', data=df)
 plt.title("Total Play Minutes Per Week by Engagement Level")
+plt.savefig('outputs/figures/play_minutes_by_engagement_level.png')  # Save the plot
 plt.show()
 
 #Distribution Plot of Normalized Features
 for feature in scaled_features:
     sns.histplot(df[feature], kde=True)
     plt.title(f"Distribution of {feature}")
+    plt.savefig(f'outputs/figures/distribution_{feature}.png')  # Save the plot
     plt.show()
