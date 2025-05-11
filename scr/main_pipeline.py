@@ -141,15 +141,18 @@ plt.ylabel("Actual")
 plt.savefig('outputs/figures/xgboost_cm.png')
 plt.show()
 
-# Classification Reports
+log_report = classification_report(y_test, y_pred_log)
+rf_report = classification_report(y_test, y_pred_rf)
+xgb_report = classification_report(y_test, y_pred_xgb)
+
 print("\nLogistic Regression Report:")
-print(classification_report(y_test, y_pred_log))
+print(log_report)
 
 print("\nRandom Forest Report:")
-print(classification_report(y_test, y_pred_rf))
+print(rf_report)
 
 print("\nXGBoost Report:")
-print(classification_report(y_test, y_pred_xgb))
+print(xgb_report)
 
 # Save classification reports to files
 with open('outputs/results/logistic_regression_report.txt', 'w') as f:
@@ -158,7 +161,6 @@ with open('outputs/results/random_forest_report.txt', 'w') as f:
     f.write(rf_report)
 with open('outputs/results/xgboost_report.txt', 'w') as f:
     f.write(xgb_report)
-
 # Summary Table
 model_scores = pd.DataFrame({
     'Model': ['Logistic Regression', 'Random Forest', 'XGBoost'],
