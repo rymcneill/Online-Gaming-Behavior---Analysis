@@ -20,8 +20,8 @@ The analysis pipeline involves the following key steps:
 
 ## Key Findings
 
-- Random Forest achieved the highest prediction accuracy (e.g., ~92%, adjust if known), outperforming both Logistic Regression and XGBoost. Its ensemble structure allows it to handle complex patterns in player behavior effectively.
-- XGBoost was a close second in model performance, offering a strong balance between accuracy and feature importance interpretability.
+- Random Forest achieved the highest prediction accuracy (89.58), outperforming both Logistic Regression and XGBoost. Its ensemble structure allows it to handle complex patterns in player behavior effectively.
+- XGBoost was a close second in model performance (89.49), offering a strong balance between accuracy and feature importance interpretability.
 - Logistic Regression, while less accurate than the ensemble methods, still provided useful baseline comparisons and confirmed several expected trends in the data.
 - The feature TotalPlayMinutesPerWeek emerged as the most important predictor of engagement level, indicating that the amount of time spent gaming is a strong behavioral signal.
 - Other important features included SessionsPerWeek, AchievementsUnlocked, and AvgSessionDurationMinutes, all contributing significantly to model predictions.
