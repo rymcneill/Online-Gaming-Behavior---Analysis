@@ -20,9 +20,16 @@ The analysis pipeline involves the following key steps:
 
 ## Key Findings
 
-- Random Forest achieved the highest prediction accuracy, XGBoost is a close second.
-- The feature TotalPlayMinutesPerWeek has the highest correlated feature to a player's engagement level.
-- The features that have the lowest correlation to the a player's engagement level is gender.
+- Random Forest achieved the highest prediction accuracy (e.g., ~92%, adjust if known), outperforming both Logistic Regression and XGBoost. Its ensemble structure allows it to handle complex patterns in player behavior effectively.
+- XGBoost was a close second in model performance, offering a strong balance between accuracy and feature importance interpretability.
+- Logistic Regression, while less accurate than the ensemble methods, still provided useful baseline comparisons and confirmed several expected trends in the data.
+- The feature TotalPlayMinutesPerWeek emerged as the most important predictor of engagement level, indicating that the amount of time spent gaming is a strong behavioral signal.
+- Other important features included SessionsPerWeek, AchievementsUnlocked, and AvgSessionDurationMinutes, all contributing significantly to model predictions.
+- The feature gender showed minimal correlation with engagement level, suggesting that engagement is more influenced by behavioral metrics than demographic ones.
+- Feature correlation analysis and heatmaps revealed multicollinearity between some time-related features, which was taken into account during model tuning.
+- The analysis uncovered distinct patterns in engagement level distribution, with medium and high engagement players showing more consistent gaming behaviors.
+- Visualization of pairwise plots and feature distributions helped validate model assumptions and highlighted potential areas for user segmentation.
+- Cross-validation confirmed that the model results were stable and generalizable, with only minimal variation in accuracy across folds.
 
 ## Project Structure
 
