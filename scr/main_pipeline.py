@@ -106,6 +106,11 @@ log_cv_scores = cross_val_score(log_model, X, y, cv=5)
 rf_cv_scores = cross_val_score(best_rf_model, X, y, cv=5)
 xgb_cv_scores = cross_val_score(best_xgb_model, X, y, cv=5)
 
+with open('outputs/results/cross_validation_scores.txt', 'w') as f:
+    f.write(f"Logistic Regression CV Score: {log_cv_scores.mean():.4f}\n")
+    f.write(f"Random Forest CV Score: {rf_cv_scores.mean():.4f}\n")
+    f.write(f"XGBoost CV Score: {xgb_cv_scores.mean():.4f}\n")
+
 print("\nCross-Validation Scores:")
 print(f"Logistic Regression: {log_cv_scores.mean():.4f}")
 print(f"Random Forest: {rf_cv_scores.mean():.4f}")
@@ -117,6 +122,7 @@ sns.heatmap(cm_log, annot=True, fmt='d', cmap='Blues')
 plt.title("Logistic Regression - Confusion Matrix")
 plt.xlabel("Predicted")
 plt.ylabel("Actual")
+plt.savefig('outputs/figures/logistic_regression_cm.png')
 plt.show()
 
 cm_rf = confusion_matrix(y_test, y_pred_rf)
@@ -124,6 +130,7 @@ sns.heatmap(cm_rf, annot=True, fmt='d', cmap='Greens')
 plt.title("Random Forest - Confusion Matrix")
 plt.xlabel("Predicted")
 plt.ylabel("Actual")
+plt.savefig('outputs/figures/random_forest_cm.png')
 plt.show()
 
 cm_xgb = confusion_matrix(y_test, y_pred_xgb)
@@ -131,6 +138,7 @@ sns.heatmap(cm_xgb, annot=True, fmt='d', cmap='Oranges')
 plt.title("XGBoost - Confusion Matrix")
 plt.xlabel("Predicted")
 plt.ylabel("Actual")
+plt.savefig('outputs/figures/xgboost_cm.png')
 plt.show()
 
 # Classification Reports
@@ -142,6 +150,14 @@ print(classification_report(y_test, y_pred_rf))
 
 print("\nXGBoost Report:")
 print(classification_report(y_test, y_pred_xgb))
+
+# Save classification reports to files
+with open('outputs/results/logistic_regression_report.txt', 'w') as f:
+    f.write(log_report)
+with open('outputs/results/random_forest_report.txt', 'w') as f:
+    f.write(rf_report)
+with open('outputs/results/xgboost_report.txt', 'w') as f:
+    f.write(xgb_report)
 
 # Summary Table
 model_scores = pd.DataFrame({
@@ -159,6 +175,10 @@ model_scores = pd.DataFrame({
 })
 print("\nModel Scores:")
 print(model_scores)
+
+#adding models to files
+model_scores.to_csv('outputs/results/model_scores.csv', index=False)
+
 
 # Visual Comparison
 sns.barplot(x='Model', y='Accuracy', data=model_scores)
