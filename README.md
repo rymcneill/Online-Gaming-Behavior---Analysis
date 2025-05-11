@@ -29,34 +29,64 @@ The analysis pipeline involves the following key steps:
 The project directory is organized as follows:
 
 Online-Gaming-Behavior-Analysis/
+
 ├── data/
+
 │   └── online_gaming_behavior_dataset.csv  # The raw dataset
+
 ├── notebooks/
+
 │   └── analysis.ipynb                      # The main Jupyter Notebook containing the analysis pipeline
+
 ├── outputs/
+
 │   ├── figures/                          # Directory to store generated plots
+
 │   │   ├── confusion_matrix_logistic_regression.png
+
 │   │   ├── confusion_matrix_random_forest.png
+
 │   │   ├── confusion_matrix_xgboost.png
+
 │   │   ├── model_accuracy_comparison.png
+
 │   │   ├── model_f1_score_comparison.png
+
 │   │   ├── xgboost_feature_importance.png
+
 │   │   ├── engagement_level_distribution.png
+
 │   │   ├── feature_correlation_heatmap.png
+
 │   │   ├── pairwise_plot_key_features.png
+
 │   │   ├── play_minutes_by_engagement_level.png
+
 │   │   ├── distribution_PlayTimeHours.png
+
 │   │   ├── distribution_SessionsPerWeek.png
+
 │   │   ├── distribution_AvgSessionDurationMinutes.png
+
 │   │   └── distribution_AchievementsUnlocked.png
+
 │   └── results/                          # Directory to store textual results
+
 │       ├── cross_validation_scores.txt
+
 │       ├── logistic_regression_report.txt
+
 │       ├── random_forest_report.txt
+
 │       ├── xgboost_report.txt
+
 │       └── model_scores.csv
+
 ├── scr/
+
 │   └── main_pipeline.py                    # Main pipeline, containing the entire Python script
+
 ├── README.md                             # This file
+
 └── requirements.txt                      # List of project dependencies
 
