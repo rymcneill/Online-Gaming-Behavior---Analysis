@@ -16,7 +16,7 @@ RANDOM_STATE = 42
 np.random.seed(RANDOM_STATE)
 
 # Load the data
-df = pd.read_csv("online_gaming_behavior_dataset.csv")
+df = pd.read_csv("data/online_gaming_behavior_dataset.csv")
 
 # Check for missing values
 print(df.isnull().sum())
