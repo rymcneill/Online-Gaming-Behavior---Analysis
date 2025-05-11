@@ -34,7 +34,7 @@ Online-Gaming-Behavior-Analysis/
 ├── notebooks/
 │   └── analysis.ipynb                      # The main Jupyter Notebook containing the analysis pipeline
 ├── outputs/
-│   ├── figures/                            # Directory to store generated plots
+│   ├── figures/                          # Directory to store generated plots
 │   │   ├── confusion_matrix_logistic_regression.png
 │   │   ├── confusion_matrix_random_forest.png
 │   │   ├── confusion_matrix_xgboost.png
@@ -49,13 +49,14 @@ Online-Gaming-Behavior-Analysis/
 │   │   ├── distribution_SessionsPerWeek.png
 │   │   ├── distribution_AvgSessionDurationMinutes.png
 │   │   └── distribution_AchievementsUnlocked.png
-│   └── results/                            # Directory to store textual results
+│   └── results/                          # Directory to store textual results
 │       ├── cross_validation_scores.txt
 │       ├── logistic_regression_report.txt
 │       ├── random_forest_report.txt
 │       ├── xgboost_report.txt
 │       └── model_scores.csv
 ├── scr/
-│   └── main_pipeline.py                    # Main pipeline, containing the enitre Python script
-├── README.md                               # This file
-└── requirements.txt                        # List of project dependencies
+│   └── main_pipeline.py                    # Main pipeline, containing the entire Python script
+├── README.md                             # This file
+└── requirements.txt                      # List of project dependencies
+
